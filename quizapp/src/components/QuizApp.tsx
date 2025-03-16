@@ -1,6 +1,10 @@
 import {  useEffect, useState } from "react";
 import { quizData,Question } from "../data/questions";
 
+interface HighScore{
+    name:string;
+    score:number;
+}
 const QuizApp:React.FC=()=>{
 
     const[currentQuestion,setCurrentQuestion]=useState<number>(0);
@@ -8,7 +12,7 @@ const QuizApp:React.FC=()=>{
     const[score,setScore]=useState<number>(0);
     const[quizFinished,setQuizFinished]=useState<boolean>(false);
     const[name,setName]=useState<string>("")
-    const[highScores,setHighScores]=useState<{name:string;score:number}[]>([]);
+    const[highScores,setHighScores]=useState<HighScore[]>([]);
 
 
     useEffect(()=>{
