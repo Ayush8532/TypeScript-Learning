@@ -4,7 +4,7 @@ interface Props{
     setSelectedCategory:(category:string)=>void
 }
 
-const ExportFilter:React.FC<Props>=({categories,selectedCategory,setSelectedCategory})=>{
+const ExpenseFilter:React.FC<Props>=({categories,selectedCategory,setSelectedCategory})=>{
     return(
 <>
 <div>
@@ -24,4 +24,4 @@ const ExportFilter:React.FC<Props>=({categories,selectedCategory,setSelectedCate
 
 }
 
-export default ExportFilter;
+export default ExpenseFilter;
