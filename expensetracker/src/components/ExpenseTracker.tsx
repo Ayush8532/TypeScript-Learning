@@ -3,6 +3,7 @@ import ExpenseList from "./ExpenseList";
 import { Expense } from "../types";
 import { useEffect, useState } from "react";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseSummary from "./ExpenseSummary";
 
 const ExpenseTracker: React.FC = () => {
     const [expenses, setExpenses] = useState<Expense[]>(() => {
@@ -11,7 +12,7 @@ const ExpenseTracker: React.FC = () => {
     });
 
     const [editExpense,setEditExpense]=useState<Expense|null>(null);
-    const [selectedCategory,setSelectedCategory]=useState("");
+    const [selectedCategory,setSelectedCategory]=useState<string>("");
 
     useEffect(() => {
         localStorage.setItem('expenses', JSON.stringify(expenses));
@@ -37,6 +38,7 @@ const ExpenseTracker: React.FC = () => {
             <ExpenseForm addExpenses={addExpense} editExpense={editExpense} updateExpense={updateExpense}/>
             <ExpenseFilter categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
             <ExpenseList expenses={filterExpenses} deleteExpense={deleteExpense} editExpense={setEditExpense} />
+            <ExpenseSummary expenses={expenses}/>
         </div>
     );
 };
