@@ -4,6 +4,7 @@ import { Expense } from "../types";
 import { useEffect, useState } from "react";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseSummary from "./ExpenseSummary";
+import ExpenseChart from "./ExpenseChart";
 
 const ExpenseTracker: React.FC = () => {
     const [expenses, setExpenses] = useState<Expense[]>(() => {
@@ -39,6 +40,8 @@ const ExpenseTracker: React.FC = () => {
             <ExpenseFilter categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
             <ExpenseList expenses={filterExpenses} deleteExpense={deleteExpense} editExpense={setEditExpense} />
             <ExpenseSummary expenses={expenses}/>
+            <ExpenseChart expenses={expenses}/>
+
         </div>
     );
 };
